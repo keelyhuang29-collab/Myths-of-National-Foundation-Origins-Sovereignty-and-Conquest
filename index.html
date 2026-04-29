@@ -1742,7 +1742,7 @@
                     var matMesh = new THREE.Mesh(new THREE.BoxGeometry(w + 0.03, h + 0.03, 0.042),
                         new THREE.MeshLambertMaterial({ color: 0xfafafa }));
                     matMesh.position.set(x, y, z); matMesh.rotation.y = ry;
-                    matMesh.position.x -= Math.sin(ry) * 0.005; matMesh.position.z += Math.cos(ry) * 0.005;
+                    matMesh.position.x += Math.sin(ry) * 0.005; matMesh.position.z += Math.cos(ry) * 0.005;
                     scene.add(matMesh);
                     // Image - draw to canvas for reliable WebGL texture
                     var picMat;
@@ -1761,7 +1761,7 @@
                     }
                     var pic = new THREE.Mesh(new THREE.PlaneGeometry(w, h), picMat);
                     pic.position.set(x, y, z); pic.rotation.y = ry;
-                    pic.position.x -= Math.sin(ry) * 0.03; pic.position.z += Math.cos(ry) * 0.03;
+                    pic.position.x += Math.sin(ry) * 0.03; pic.position.z += Math.cos(ry) * 0.03;
                     scene.add(pic);
                     // Ceiling light fixture (visual only)
                     var fix = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.08, 0.12), railMat);
