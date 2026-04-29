@@ -1732,7 +1732,10 @@
                     rail.position.set(0, RH - 0.04, lz); scene.add(rail);
                 });
 
-                // Paintings
+                // Paintings - store scene globally for debugging
+                window.__g3dScene = scene;
+                window.__g3dRenderer = renderer;
+                window.__g3dCamera = camera;
                 function addPainting(src, x, y, z, ry, w, h) {
                     if (!src) return;
                     // Black frame
@@ -1744,14 +1747,20 @@
                     matMesh.position.set(x, y, z); matMesh.rotation.y = ry;
                     matMesh.position.x += Math.sin(ry) * 0.005; matMesh.position.z -= Math.cos(ry) * 0.005;
                     scene.add(matMesh);
-                    // Image - use preloaded image for texture
+                    // Image - draw to canvas for reliable WebGL texture
                     var picMat;
                     if (imgMap[src]) {
-                        var tex = new THREE.Texture(imgMap[src]);
+                        var cvs = document.createElement('canvas');
+                        var imgEl = imgMap[src];
+                        cvs.width = Math.min(imgEl.width, 1024);
+                        cvs.height = Math.min(imgEl.height, 1024);
+                        var ctx2d = cvs.getContext('2d');
+                        ctx2d.drawImage(imgEl, 0, 0, cvs.width, cvs.height);
+                        var tex = new THREE.CanvasTexture(cvs);
                         tex.needsUpdate = true;
                         picMat = new THREE.MeshBasicMaterial({ map: tex });
                     } else {
-                        picMat = new THREE.MeshBasicMaterial({ color: 0x333333 });
+                        picMat = new THREE.MeshBasicMaterial({ color: 0xff0000 });
                     }
                     var pic = new THREE.Mesh(new THREE.PlaneGeometry(w, h), picMat);
                     pic.position.set(x, y, z); pic.rotation.y = ry;
