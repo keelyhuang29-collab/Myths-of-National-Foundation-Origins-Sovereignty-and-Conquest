@@ -1851,17 +1851,17 @@
                 var viewpoints = [
                     { x: 0, z: 0, lookX: 0, lookZ: -12, label: 'Center' },
                     { x: -8, z: -4, lookX: -8, lookZ: -12, label: 'Monkman' },
-                    { x: -10, z: 3, lookX: -15, lookZ: 3, label: 'Monkman Left' },
+                    { x: -12, z: 3, lookX: -15, lookZ: 3, label: 'Monkman Left' },
                     { x: 2, z: -4, lookX: 2, lookZ: -12, label: 'Main Wall' },
-                    { x: 10, z: -4, lookX: 15, lookZ: -4, label: 'Other Artists' },
-                    { x: -5, z: 8, lookX: -5, lookZ: 12, label: 'Other South' },
+                    { x: 12, z: -4, lookX: 15, lookZ: -4, label: 'Other Artists' },
+                    { x: -5, z: 9, lookX: -5, lookZ: 12, label: 'Other South' },
                     { x: 10, z: 9, lookX: 10, lookZ: 12, label: 'Ferrari' },
-                    { x: 6, z: 3, lookX: 6, lookZ: -4, label: 'Right Hall' },
-                    { x: -6, z: 0, lookX: -6, lookZ: -12, label: 'Left Hall' },
-                    { x: 6, z: -2, lookX: 6, lookZ: -12, label: 'Back Right' },
-                    { x: 0, z: 6, lookX: 0, lookZ: -2, label: 'Mid South' },
-                    { x: -5, z: 10, lookX: -5, lookZ: 6, label: 'South Return' },
-                    { x: 8, z: 6, lookX: 8, lookZ: 0, label: 'East Return' },
+                    { x: 7, z: 3, lookX: 0, lookZ: 3, label: 'Right Hall' },
+                    { x: -7, z: -1, lookX: 0, lookZ: -1, label: 'Left Hall' },
+                    { x: 6, z: -4, lookX: 0, lookZ: -4, label: 'Back Right' },
+                    { x: 0, z: 6, lookX: 0, lookZ: 0, label: 'Mid South' },
+                    { x: -7, z: 6, lookX: 0, lookZ: 3, label: 'South West' },
+                    { x: 7, z: 7, lookX: 0, lookZ: 4, label: 'South East' },
                 ];
                 spotsRef.current = viewpoints;
 
@@ -2032,7 +2032,7 @@
                 { label: 'Center' }, { label: 'Monkman' }, { label: 'Monkman Left' },
                 { label: 'Main Wall' }, { label: 'Other Artists' }, { label: 'Other South' }, { label: 'Ferrari' },
                 { label: 'Right Hall' }, { label: 'Left Hall' }, { label: 'Back Right' }, { label: 'Mid South' },
-                { label: 'South Return' }, { label: 'East Return' }
+                { label: 'South West' }, { label: 'South East' }
             ];
 
             return (
@@ -2133,6 +2133,39 @@ Then, you must do this: help the next person find their way through the dark.`;
             );
         }
 
+        function ArtistsTab() {
+            var artists = [
+                { name: "Kent Monkman", nation: "Cree (Fisher River Band)", bio: "A Two-Spirit Cree artist known for his bold reimagining of colonial history through his alter ego Miss Chief Eagle Testickle. His large-scale history paintings reinsert Indigenous presence into foundational Western narratives, challenging the erasure embedded in canonical art." },
+                { name: "Lawrence Paul Yuxweluptun", nation: "Coast Salish", bio: "A Coast Salish artist whose surrealist, vividly colored paintings address Indigenous land rights, environmentalism, and the ongoing impacts of colonialism. His work merges traditional Northwest Coast forms with contemporary political commentary." },
+                { name: "Sonny Assu", nation: "Ligwilda'xw / Kwakwaka'wakw", bio: "A Ligwilda'xw artist of the Kwakwaka'wakw Nation who blends traditional Northwest Coast art with pop culture aesthetics. His work interrogates colonial history and Indigenous resilience through printmaking, painting, and installation." },
+                { name: "Maria Thereza Alves", nation: "Brazilian", bio: "A Brazilian-born artist and activist whose interdisciplinary practice examines colonialism, ecology, and Indigenous displacement. Her work traces the material and botanical legacies of colonial trade routes and forced migration." },
+                { name: "Anita Fields", nation: "Osage", bio: "An Osage artist working in ceramics, textiles, and installation. Her practice is deeply rooted in Osage cosmology and women's traditions, exploring themes of identity, memory, and the continuity of Indigenous knowledge systems." },
+                { name: "Gilbert Magu Luján", nation: "Chicano", bio: "A pioneering Chicano artist known for his vibrant, whimsical depictions of lowrider culture and the Mexican-American experience. His paintings and sculptures celebrate mestizo identity and the creative resistance of borderland communities." },
+                { name: "Wendy Red Star", nation: "Apsáalooke (Crow)", bio: "An Apsáalooke multimedia artist who uses photography, sculpture, and fiber arts to explore the intersection of Native American ideologies and colonialist narratives. Her humorous and critical work reclaims agency over the representation of Indigenous peoples." },
+                { name: "Norval Morrisseau", nation: "Anishinaabe (Bingwi Neyaashi Anishinaabek)", bio: "Known as Copper Thunderbird, Morrisseau was the founder of the Woodland School of Art. His iconic X-ray style paintings draw from Anishinaabe spiritual traditions, depicting the interconnection of all living beings through bold outlines and luminous color." },
+                { name: "Fernando Birri", nation: "Argentine", bio: "An Argentine filmmaker and artist regarded as the father of New Latin American Cinema. His documentary and experimental works challenged neocolonial power structures and imagined utopian possibilities for Latin American self-determination." },
+                { name: "León Ferrari", nation: "Argentine", bio: "An Argentine conceptual artist whose provocative works critique political violence, religious authoritarianism, and Western imperialism. His collages of newspaper clippings and ecclesiastical imagery expose the complicity between institutional power and human suffering." }
+            ];
+
+            return (
+                <div className="tab-content">
+                    <h2>Featured Artists</h2>
+                    <p style={{ fontStyle: 'italic', color: '#8b6914', marginBottom: '2rem', maxWidth: '700px' }}>
+                        The artists in this exhibition represent diverse Indigenous nations and cultural traditions, each offering distinct perspectives on sovereignty, identity, and the foundational myths of the Americas.
+                    </p>
+                    <div style={{ display: 'grid', gap: '1.5rem', maxWidth: '900px' }}>
+                        {artists.map((a, i) => (
+                            <div key={i} style={{ background: 'rgba(139,105,20,0.06)', padding: '1.5rem', borderRadius: '8px', borderLeft: '3px solid #8b6914' }}>
+                                <h3 style={{ margin: '0 0 0.3rem 0', color: '#4a2c2a', fontSize: '1.25rem' }}>{a.name}</h3>
+                                <div style={{ fontSize: '0.85rem', color: '#8b6914', marginBottom: '0.6rem', fontStyle: 'italic' }}>{a.nation}</div>
+                                <p style={{ margin: 0, lineHeight: 1.7, fontSize: '0.95rem' }}>{a.bio}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            );
+        }
+
         function VisitTab() {
             return (
                 <div className="tab-content">
@@ -2185,6 +2218,7 @@ Then, you must do this: help the next person find their way through the dark.`;
                 { id: 'sovereignty', label: 'Sovereignty' },
                 { id: 'gallery', label: '3D Gallery' },
                 { id: 'poetry', label: 'Poetry' },
+                { id: 'artists', label: 'Artists' },
                 { id: 'visit', label: 'Visit' }
             ];
 
@@ -2200,6 +2234,8 @@ Then, you must do this: help the next person find their way through the dark.`;
                         return <Gallery3D />;
                     case 'poetry':
                         return <PoetryTab />;
+                    case 'artists':
+                        return <ArtistsTab />;
                     case 'visit':
                         return <VisitTab />;
                     default:
