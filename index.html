@@ -1288,6 +1288,11 @@
         function ExhibitionTab() {
             return (
                 <div className="tab-content">
+                    <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+                        <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '2.8rem', fontWeight: 400, fontStyle: 'italic', color: 'var(--burgundy)', marginBottom: '0.5rem' }}>Myths of National Foundation, Origins, Sovereignty, and Conquest</h1>
+                        <div style={{ width: 80, height: 2, background: 'linear-gradient(90deg, var(--gold), var(--sienna), var(--purple))', margin: '0.8rem auto' }}></div>
+                        <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.15rem', color: '#888', fontStyle: 'italic' }}>An exhibition exploring Indigenous perspectives, decolonization, and the politics of sovereignty</p>
+                    </div>
                     <div className="exhibition-header">
                         <h1>Exhibition</h1>
                         <p className="exhibition-credits">Curated by Abigail, Gabrielle, Keely, Jacklyn</p>
@@ -1359,6 +1364,16 @@
                             <h3>Interactive Story Reading</h3>
                             <p>A family-friendly presentation of Thomas King's "A Coyote Columbus Story" (1992) brought to life with paper bag puppets. Explore how stories can reframe history and challenge what we think we know about discovery and conquest.</p>
                         </div>
+                    </div>
+
+                    {/* Exhibition Support */}
+                    <div style={{ marginTop: '4rem', padding: '3rem', background: 'linear-gradient(135deg, #2a2035 0%, #1a1520 100%)', borderRadius: '16px', color: '#e8e0d0' }}>
+                        <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '2rem', fontWeight: 400, color: 'var(--gold)', marginBottom: '2rem' }}>Exhibition Support</h2>
+                        <p style={{ fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>The exhibition is organized by The Phillips Collection.</p>
+                        <p style={{ fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>Research for this project was made possible by the <strong style={{ color: '#88c9a8' }}>Acorn Fund</strong> from the <strong>Terra Foundation for American Art</strong>.</p>
+                        <p style={{ fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>This exhibition is made possible, in part, by the <strong>First Nations' Native Arts Initiative Grant</strong> from the <strong>First Nations Development Institute</strong>.</p>
+                        <p style={{ fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>Presented with the essential support of the <strong>Center for Native American Youth</strong> in Washington, DC.</p>
+                        <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: '#999', marginTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '1.5rem' }}>With critical support from The Phillips Collection's Exhibitions Endowment Fund.</p>
                     </div>
                 </div>
             );
