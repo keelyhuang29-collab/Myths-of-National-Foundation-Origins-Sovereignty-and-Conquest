@@ -1637,6 +1637,7 @@
                 var railMat = new THREE.MeshLambertMaterial({ color: 0x444444 });
                 var hotspotMat = new THREE.MeshBasicMaterial({ color: 0x3498db, transparent: true, opacity: 0.7, side: THREE.DoubleSide });
                 var textureLoader = new THREE.TextureLoader();
+                textureLoader.setCrossOrigin('anonymous');
 
                 var RH = 5.5;
                 var GW = 30, GD = 24;
