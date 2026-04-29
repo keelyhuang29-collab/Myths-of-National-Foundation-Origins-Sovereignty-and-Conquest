@@ -1849,17 +1849,19 @@
 
                 /* ===== Navigation hotspots ===== */
                 var viewpoints = [
-                    { x: 0, z: 2, lookX: 0, lookZ: -6, label: 'Center' },
+                    { x: 0, z: 0, lookX: 0, lookZ: -12, label: 'Center' },
                     { x: -8, z: -4, lookX: -8, lookZ: -12, label: 'Monkman' },
                     { x: -10, z: 3, lookX: -15, lookZ: 3, label: 'Monkman Left' },
                     { x: 2, z: -4, lookX: 2, lookZ: -12, label: 'Main Wall' },
                     { x: 10, z: -4, lookX: 15, lookZ: -4, label: 'Other Artists' },
                     { x: -5, z: 8, lookX: -5, lookZ: 12, label: 'Other South' },
                     { x: 10, z: 9, lookX: 10, lookZ: 12, label: 'Ferrari' },
-                    { x: 5, z: 4, lookX: 10, lookZ: 4, label: 'Right Hall' },
-                    { x: -5, z: -2, lookX: -10, lookZ: -2, label: 'Left Hall' },
-                    { x: 5, z: -2, lookX: 5, lookZ: -12, label: 'Back Right' },
-                    { x: 0, z: 8, lookX: 0, lookZ: 12, label: 'South Center' },
+                    { x: 6, z: 3, lookX: 6, lookZ: -4, label: 'Right Hall' },
+                    { x: -6, z: 0, lookX: -6, lookZ: -12, label: 'Left Hall' },
+                    { x: 6, z: -2, lookX: 6, lookZ: -12, label: 'Back Right' },
+                    { x: 0, z: 6, lookX: 0, lookZ: -2, label: 'Mid South' },
+                    { x: -5, z: 10, lookX: -5, lookZ: 6, label: 'South Return' },
+                    { x: 8, z: 6, lookX: 8, lookZ: 0, label: 'East Return' },
                 ];
                 spotsRef.current = viewpoints;
 
@@ -2029,7 +2031,8 @@
             var spotNames = spotsRef.current.length > 0 ? spotsRef.current : [
                 { label: 'Center' }, { label: 'Monkman' }, { label: 'Monkman Left' },
                 { label: 'Main Wall' }, { label: 'Other Artists' }, { label: 'Other South' }, { label: 'Ferrari' },
-                { label: 'Right Hall' }, { label: 'Left Hall' }, { label: 'Back Right' }, { label: 'South Center' }
+                { label: 'Right Hall' }, { label: 'Left Hall' }, { label: 'Back Right' }, { label: 'Mid South' },
+                { label: 'South Return' }, { label: 'East Return' }
             ];
 
             return (
