@@ -1712,13 +1712,23 @@
                     matMesh.position.set(x, y, z); matMesh.rotation.y = ry;
                     matMesh.position.x += Math.sin(ry) * 0.005; matMesh.position.z -= Math.cos(ry) * 0.005;
                     scene.add(matMesh);
-                    // Image (TextureLoader works fine on GitHub Pages https://)
-                    var tex = textureLoader.load(src);
-                    var pic = new THREE.Mesh(new THREE.PlaneGeometry(w, h),
-                        new THREE.MeshBasicMaterial({ map: tex }));
+                    // Image - use manual Image loading for reliable texture display
+                    var picPlane = new THREE.PlaneGeometry(w, h);
+                    var picMat = new THREE.MeshBasicMaterial({ color: 0x333333 });
+                    var pic = new THREE.Mesh(picPlane, picMat);
                     pic.position.set(x, y, z); pic.rotation.y = ry;
                     pic.position.x += Math.sin(ry) * 0.025; pic.position.z -= Math.cos(ry) * 0.025;
                     scene.add(pic);
+                    var img = new Image();
+                    img.crossOrigin = 'anonymous';
+                    img.onload = function() {
+                        var tex = new THREE.Texture(img);
+                        tex.needsUpdate = true;
+                        pic.material.map = tex;
+                        pic.material.color.set(0xffffff);
+                        pic.material.needsUpdate = true;
+                    };
+                    img.src = src;
                     // Ceiling light fixture (visual only)
                     var fix = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.08, 0.12), railMat);
                     fix.position.set(x, RH - 0.04, z); scene.add(fix);
